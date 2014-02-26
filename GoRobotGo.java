@@ -6,11 +6,11 @@ This is the main class and will create/handle objects from all other created cla
 
 Most commands are from the documentation on "RXTX Robot". 
 */
+import rxtxrobot.*; 
 
 public class GoRobotGo {
 public static void main(String[] args) {
-	
-	System.out.println("Hello, robot!");
-
+	movement move = new movement();
+	move.main();
 }
 }
