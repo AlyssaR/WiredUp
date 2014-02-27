@@ -8,10 +8,10 @@ This class will handle dispensing the correct amount of ping pong balls.
 import rxtxrobot.*; 
 
 public class Dispense {
-    private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    private int salinity = 0, turbidity = 0;
-    public int salinReading = 0, turbidReading = 0;
-    private Movement go = new Movement();
+    RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    int salinity = 0, turbidity = 0;
+    int salinReading = 0, turbidReading = 0;
+    Movement go = new Movement();
 
     public Dispense(int salin, int turbid) {
         mater.setPort("COM4");

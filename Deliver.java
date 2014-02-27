@@ -8,9 +8,9 @@ This class will handle finding the drop off point and delivering the ping pong b
 import rxtxrobot.*;
 
 public class Deliver {
-    private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    private Movement go = new Movement();
-    private int bridgeAt; //From starting spot looking across canyon: 0=left, 1=middle, 2=right
+    RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    Movement go = new Movement();
+    int bridgeAt; //From starting spot looking across canyon: 0=left, 1=middle, 2=right
 
     public Deliver(int bridge) {
         mater.setPort("COM4");

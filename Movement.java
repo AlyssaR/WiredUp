@@ -8,7 +8,7 @@ This class will handle moving and maneuvering around the course.
 import rxtxrobot.*; 
 
 public class Movement {
-    private RXTXRobot mater; //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    RXTXRobot mater; //Note: Our robot name is "mater" like tuhmater except without the tuh.
 
     public Movement() {
         mater.setPort("COM4");
