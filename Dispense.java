@@ -36,7 +36,7 @@ public class Dispense {
 
     public void getSBalls() {
         go.forward(); //Some navigationaly stuff to find the dispenser
-        if(CanSeeDispenser) { //use ping
+        if(/*CanSeeDispenser*/true) { //use ping
             for(; salinity > 0; salinity--) {
                 go.forward();
                 mater.sleep(1000); //Waits 1 second

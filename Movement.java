@@ -8,7 +8,7 @@ This class will handle moving and maneuvering around the course.
 import rxtxrobot.*; 
 
 public class Movement {
-    private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    private RXTXRobot mater; //Note: Our robot name is "mater" like tuhmater except without the tuh.
 
     public Movement() {
         mater.setPort("COM4");
@@ -21,11 +21,11 @@ public class Movement {
     }
 
     public void forward() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, RXTXRobot.MOTOR2, 255, 100000); //Speed of 255 for 100,000 ticks
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 100000, RXTXRobot.MOTOR2, 255, 100000); //Speed of 255 for 100,000 ticks
     }
 
     public void backward() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, RXTXRobot.MOTOR2, -255, 100000); //Speed of 255 for 100,000 ticks
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 100000, RXTXRobot.MOTOR2, -255, 100000); //Speed of 255 for 100,000 ticks
     }
 
     public void left() {

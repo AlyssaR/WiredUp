@@ -6,7 +6,7 @@ This is the main class and will create/handle objects from all other created cla
 
 Most commands are from the documentation on "RXTX Robot". 
 */
-import rxtxrobot.*; 
+import rxtxrobot.*;
 
 public class GoRobot {
 public static void main(String[] args) {

@@ -5,7 +5,7 @@
 This class will handle finding the drop off point and delivering the ping pong balls.
 
 */
-import rxtxrobot.*; 
+import rxtxrobot.*;
 
 public class Deliver {
     private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
@@ -23,15 +23,16 @@ public class Deliver {
     }
 
     public void findDropoff() {
-        go.forward;
-        go.right; //Navigate to dropoff (factor in current location based on location of bridge)
-        while(CannotSeeWall) //Use bump? to find wall behind dropoff
-            go.forward;
-        go.backward;
+        go.forward();
+        go.right(); //Navigate to dropoff (factor in current location based on location of bridge)
+        while(/*CannotSeeWall*/true) {//Use bump? to find wall behind dropoff
+            go.forward();
+        }
+        go.backward();
     }
 
     public void dispenseBalls() {
         //Use servo motors to raise arm and open gate
-        go.backward; //Help final balls roll out?
+        go.backward(); //Help final balls roll out?
     }
 }
