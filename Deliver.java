@@ -28,7 +28,6 @@ public class Deliver {
         while(/*CannotSeeWall*/true) {//Use bump? to find wall behind dropoff
             go.forward();
         }
-        go.backward();
     }
 
     public void dispenseBalls() {

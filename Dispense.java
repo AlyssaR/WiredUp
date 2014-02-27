@@ -42,21 +42,24 @@ public class Dispense {
                 mater.sleep(1000); //Waits 1 second
                 go.backward();
             }
-        else
-            LineUpAgain
+        }
+        else {
+            //LineUpAgain
         }
     }
 
     public void getTBalls() {
         go.forward(); //Some navigationaly stuff to find the dispenser
-        if(CanSeeDispenser) { //use ping
+        if(/*CanSeeDispenser*/true) { //use ping
             for(; turbidity > 0; turbidity--) {
                 go.forward();
                 mater.sleep(1000); //Waits 1 second
                 go.backward();
             }
-        else
-            LineUpAgain
-    }
+        }
+        else {
+            //LineUpAgain
+        }
 
+    }
 }
