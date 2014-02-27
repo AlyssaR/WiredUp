@@ -10,6 +10,10 @@ import rxtxrobot.*;
 
 public class GoRobot {
 public static void main(String[] args) {
+    Movement go = new Movement(); //Create objects for all classes
+    Dispense dispense = new Dispense();
+    Deliver deliver = new Deliver();
+
 
 
 }

@@ -9,7 +9,7 @@ import rxtxrobot.*;
 
 public class Dispense {
 public static void main(String[] args) {
+    Movement move = new Movement(); //Create object to handle moving
 
 }
-
 }

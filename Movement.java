@@ -9,18 +9,17 @@ import rxtxrobot.*;
 
 public class Movement {
 public static void main(String[] args) {
-	Move();
+	forward();
 
 }
 
-public static void Move() {
-	RXTXRobot mater = new RXTXRobot(); // Create RXTXRobot object 
+public static void forward() {
+	RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    
 	mater.setPort("COM4"); // Set port to COM4
 	mater.setHasEncodedMotors(true); 
 	mater.connect(); 
-	mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 100000); // Run motor 1 forward (speed of 255) for 100,000 ticks 
-	// Program stops until the command above is completed 
-	mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 100000); // Run motor 1 backward (speed of 255) for 100,000 ticks 
+	mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 100000); // Run motor 1 forward (speed of 255) for 100,000 ticks
 	mater.close(); 
 
 
