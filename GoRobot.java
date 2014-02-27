@@ -11,6 +11,8 @@ import rxtxrobot.*;
 public class GoRobot {
 public static void main(String[] args) {
 	Move();
+
+    //Testing comments
 }
 
 public static void Move() {
