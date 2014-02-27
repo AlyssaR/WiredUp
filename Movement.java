@@ -8,20 +8,20 @@ This class will handle moving and maneuvering around the course.
 import rxtxrobot.*; 
 
 public class Movement {
-public static void main(String[] args) {
-	forward();
+    private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
 
-}
-
-public static void forward() {
-	RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    public Movement() {
+        mater.setPort("COM4");
+        mater.setHasEncodedMotors(true);
+        mater.connect();
+    }
     
-	mater.setPort("COM4"); // Set port to COM4
-	mater.setHasEncodedMotors(true); 
-	mater.connect(); 
-	mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 100000); // Run motor 1 forward (speed of 255) for 100,000 ticks
-	mater.close(); 
+    public static void main(String[] args) {
+        forward();
+        mater.close();
+    }
 
-
-}
+    public static void forward() {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, RXTXRobot.MOTOR2, 255, 100000); //Speed of 255 for 100,000 ticks
+    }
 }
