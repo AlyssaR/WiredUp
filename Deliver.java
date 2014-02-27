@@ -7,7 +7,7 @@ This class will handle finding the drop off point and delivering the ping pong b
 */
 import rxtxrobot.*; 
 
-public class GoRobot {
+public class Deliver {
 public static void main(String[] args) {
 
 }

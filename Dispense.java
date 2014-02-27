@@ -7,7 +7,7 @@ This class will handle dispensing the correct amount of ping pong balls.
 */
 import rxtxrobot.*; 
 
-public class GoRobot {
+public class Dispense {
 public static void main(String[] args) {
 
 }
