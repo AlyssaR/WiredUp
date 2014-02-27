@@ -15,13 +15,24 @@ public class Movement {
         mater.setHasEncodedMotors(true);
         mater.connect();
     }
-    
-    public static void main(String[] args) {
-        forward();
+
+    public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
         mater.close();
     }
 
-    public static void forward() {
+    public void forward() {
         mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, RXTXRobot.MOTOR2, 255, 100000); //Speed of 255 for 100,000 ticks
+    }
+
+    public void backward() {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, RXTXRobot.MOTOR2, -255, 100000); //Speed of 255 for 100,000 ticks
+    }
+
+    public void left() {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 10000, RXTXRobot.MOTOR2, 255, 10000); //Speed of +-255 for 10,000 ticks
+    }
+
+    public void right() {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 10000, RXTXRobot.MOTOR2, -255, 10000); //Speed of +-255 for 10,000 ticks
     }
 }
