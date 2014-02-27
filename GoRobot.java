@@ -10,9 +10,12 @@ import rxtxrobot.*;
 
 public class GoRobot {
 public static void main(String[] args) {
+    int salinReading, turbidReading, bridgeLocation;
+    bool getToken;
+
     Movement go = new Movement(); //Create objects for all classes
-    Dispense dispense = new Dispense();
-    Deliver deliver = new Deliver();
+    Dispense dispense = new Dispense(salinReading, turbidReading);
+    Deliver deliver = new Deliver(bridgeLocation);
 
 
 

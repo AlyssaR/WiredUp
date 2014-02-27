@@ -10,11 +10,14 @@ import rxtxrobot.*;
 public class Dispense {
     private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
     private int salinity = 0, turbidity = 0;
+    public int salinReading = 0, turbidReading = 0;
     private Movement go = new Movement();
 
-    public Dispense() {
+    public Dispense(int salin, int turbid) {
         mater.setPort("COM4");
         mater.connect();
+        salinReading = salin;
+        turbidReading = turbid;
     }
 
     public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes

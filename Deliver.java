@@ -10,10 +10,12 @@ import rxtxrobot.*;
 public class Deliver {
     private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
     private Movement go = new Movement();
+    private int bridgeAt; //From starting spot looking across canyon: 0=left, 1=middle, 2=right
 
-    public Deliver() {
+    public Deliver(int bridge) {
         mater.setPort("COM4");
         mater.connect();
+        bridgeAt = bridge;
     }
 
     public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
