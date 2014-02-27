@@ -18,7 +18,7 @@ public class Deliver {
         bridgeAt = bridge;
     }
 
-    public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
+    public void putAway() { //Always needs to be called when done using object in other classes
         mater.close();
     }
 

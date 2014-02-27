@@ -10,14 +10,37 @@ import rxtxrobot.*;
 
 public class GoRobot {
 public static void main(String[] args) {
-    int salinReading = 0, turbidReading = 0, bridgeLocation = 0;
+    int bridgeLoc = 0; //0=left, 1=middle, 2=right
     boolean getToken;
+    Movement go = new Movement();
 
-    Movement go = new Movement(); //Create objects for all classes
-    Dispense dispense = new Dispense(salinReading, turbidReading);
-    Deliver deliver = new Deliver(bridgeLocation);
+    goGetEm(); //From well to end of dispensing
+    deliveryForMater(bridgeLoc); //From crossed bridge to delivery
 
-
-
+    go.putAway();
 }
+
+    public static void goGetEm() {
+        int salinReading = 0, turbidReading = 0;
+        Dispense dispense = new Dispense(salinReading, turbidReading);
+
+        go.backward(); //However much will align with dispenser after turning
+        go.right();
+        go.straight();
+        dispense.getTBalls(0); //Pass 0 as index for left well
+        go.backward(); //However much needed to move to other well
+        go.right();
+        go.left();
+        dispense.getTBalls(1); //Pass 1 as index for right well
+
+        dispense.putAway();
+    }
+
+    public static void deliveryForMater(int bridgeLoc) {
+        Deliver deliver = new Deliver(bridgeLoc);
+        deliver.findDropoff();
+        deliver.dispenseBalls();
+
+        deliver.putAway();
+    }
 }

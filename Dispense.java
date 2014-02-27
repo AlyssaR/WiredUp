@@ -9,7 +9,7 @@ import rxtxrobot.*;
 
 public class Dispense {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    int salinity = 0, turbidity = 0;
+    int salinity[2] = 0, turbidity[2] = 0;
     int salinReading = 0, turbidReading = 0;
     Movement go = new Movement();
 
@@ -26,18 +26,18 @@ public class Dispense {
 
     public void setSVal(int sensorInput) {
         //Do math here to figure out how many ping pong balls are needed
-        salinity = sensorInput;
+        salinity[0] = sensorInput;
     }
 
     public void setTVal(int sensorInput) {
         //Do math here to figure out how many ping pong balls are needed
-        turbidity = sensorInput;
+        turbidity[0] = sensorInput;
     }
 
-    public void getSBalls() {
+    public void getSBalls(int index) {
         go.forward(); //Some navigationaly stuff to find the dispenser
         if(/*CanSeeDispenser*/true) { //use ping
-            for(; salinity > 0; salinity--) {
+            for(; salinity[index] > 0; salinity[index]--) {
                 go.forward();
                 mater.sleep(1000); //Waits 1 second
                 go.backward();
@@ -51,7 +51,7 @@ public class Dispense {
     public void getTBalls() {
         go.forward(); //Some navigationaly stuff to find the dispenser
         if(/*CanSeeDispenser*/true) { //use ping
-            for(; turbidity > 0; turbidity--) {
+            for(; turbidity[index] > 0; turbidity[index]--) {
                 go.forward();
                 mater.sleep(1000); //Waits 1 second
                 go.backward();
