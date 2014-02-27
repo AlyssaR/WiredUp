@@ -9,6 +9,7 @@ import rxtxrobot.*;
 
 public class Deliver {
     private RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
+    private Movement go = new Movement();
 
     public Deliver() {
         mater.setPort("COM4");
@@ -17,5 +18,18 @@ public class Deliver {
 
     public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
         mater.close();
+    }
+
+    public void findDropoff() {
+        go.forward;
+        go.right; //Navigate to dropoff (factor in current location based on location of bridge)
+        while(CannotSeeWall) //Use bump? to find wall behind dropoff
+            go.forward;
+        go.backward;
+    }
+
+    public void dispenseBalls() {
+        //Use servo motors to raise arm and open gate
+        go.backward; //Help final balls roll out?
     }
 }

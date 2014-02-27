@@ -43,7 +43,7 @@ public class Dispense {
             LineUpAgain
         }
     }
-    
+
     public void getTBalls() {
         go.forward(); //Some navigationaly stuff to find the dispenser
         if(CanSeeDispenser) { //use ping
