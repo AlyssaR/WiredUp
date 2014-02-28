@@ -10,8 +10,8 @@ import rxtxrobot.*;
 public class Movement {
     RXTXRobot mater; //Note: Our robot name is "mater" like tuhmater except without the tuh.
 
-    public Movement() {
-        mater.setPort("COM4");
+    public Movement(String port) {
+        mater.setPort(port);
         mater.setHasEncodedMotors(true);
         mater.connect();
     }

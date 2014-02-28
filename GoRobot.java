@@ -12,17 +12,18 @@ public class GoRobot {
 public static void main(String[] args) {
     int bridgeLoc = 0; //0=left, 1=middle, 2=right
     boolean getToken;
-    Movement go = new Movement();
+    String port = "COM4"; //Accept input for what port the arduino is in
+    Movement go = new Movement(port);
 
     goGetEm(); //From well to end of dispensing
-    deliveryForMater(bridgeLoc); //From crossed bridge to delivery
+    deliveryForMater(bridgeLoc, port); //From crossed bridge to delivery
 
     go.putAway();
 }
 
     public static void goGetEm() {
         int salinReading = 0, turbidReading = 0;
-        Dispense dispense = new Dispense(salinReading, turbidReading);
+        Dispense dispense = new Dispense(salinReading, turbidReading, port);
 
         go.backward(); //However much will align with dispenser after turning
         go.right();
@@ -36,8 +37,8 @@ public static void main(String[] args) {
         dispense.putAway();
     }
 
-    public static void deliveryForMater(int bridgeLoc) {
-        Deliver deliver = new Deliver(bridgeLoc);
+    public static void deliveryForMater(int bridgeLoc, String port) {
+        Deliver deliver = new Deliver(bridgeLoc, port);
         deliver.findDropoff();
         deliver.dispenseBalls();
 

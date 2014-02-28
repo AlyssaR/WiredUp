@@ -11,11 +11,12 @@ public class Dispense {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
     int salinity[2] = 0, turbidity[2] = 0;
     int salinReading = 0, turbidReading = 0;
-    Movement go = new Movement();
+    Movement go;
 
-    public Dispense(int salin, int turbid) {
-        mater.setPort("COM4");
+    public Dispense(int salin, int turbid, String port) {
+        mater.setPort(port);
         mater.connect();
+        go = new Movement(port);
         salinReading = salin;
         turbidReading = turbid;
     }

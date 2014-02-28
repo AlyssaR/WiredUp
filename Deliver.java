@@ -9,12 +9,13 @@ import rxtxrobot.*;
 
 public class Deliver {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    Movement go = new Movement();
+    Movement go;
     int bridgeAt; //From starting spot looking across canyon: 0=left, 1=middle, 2=right
 
-    public Deliver(int bridge) {
-        mater.setPort("COM4");
+    public Deliver(int bridge, String port) {
+        mater.setPort(port);
         mater.connect();
+        go = new Movement(port);
         bridgeAt = bridge;
     }
 
