@@ -11,6 +11,7 @@ public class Dispense {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
     int salinity[2] = 0, turbidity[2] = 0;
     int salinReading = 0, turbidReading = 0;
+    int stdSpeed = 125;
     Movement go;
 
     public Dispense(int salin, int turbid, String port) {
@@ -36,12 +37,12 @@ public class Dispense {
     }
 
     public void getSBalls(int index) {
-        go.forward(); //Some navigationaly stuff to find the dispenser
+        go.forward(stdSpeed, DISTANCE); //Some navigationaly stuff to find the dispenser
         if(/*CanSeeDispenser*/true) { //use ping
             for(; salinity[index] > 0; salinity[index]--) {
-                go.forward();
+                go.forward(stdSpeed, DISTANCE);
                 mater.sleep(1000); //Waits 1 second
-                go.backward();
+                go.backward(stdSpeed, DISTANCE);
             }
         }
         else {
@@ -50,12 +51,12 @@ public class Dispense {
     }
 
     public void getTBalls() {
-        go.forward(); //Some navigationaly stuff to find the dispenser
+        go.forward(stdSpeed, DISTANCE); //Some navigationaly stuff to find the dispenser
         if(/*CanSeeDispenser*/true) { //use ping
             for(; turbidity[index] > 0; turbidity[index]--) {
-                go.forward();
+                go.forward(stdSpeed, DISTANCE);
                 mater.sleep(1000); //Waits 1 second
-                go.backward();
+                go.backward(stdSpeed, DISTANCE);
             }
         }
         else {

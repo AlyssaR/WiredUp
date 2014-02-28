@@ -11,6 +11,7 @@ public class Deliver {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
     Movement go;
     int bridgeAt; //From starting spot looking across canyon: 0=left, 1=middle, 2=right
+    int stdSpeed = 125;
 
     public Deliver(int bridge, String port) {
         mater.setPort(port);
@@ -24,15 +25,15 @@ public class Deliver {
     }
 
     public void findDropoff() {
-        go.forward();
-        go.right(); //Navigate to dropoff (factor in current location based on location of bridge)
+        go.forward(stdSpeed, DISTANCE);
+        go.right(stdSpeed, DISTANCE); //Navigate to dropoff (factor in current location based on location of bridge)
         while(/*CannotSeeWall*/true) {//Use bump? to find wall behind dropoff
-            go.forward();
+            go.forward(stdSpeed, DISTANCE);
         }
     }
 
     public void dispenseBalls() {
         //Use servo motors to raise arm and open gate
-        go.backward(); //Help final balls roll out?
+        go.backward(stdSpeed, DISTANCE); //Help final balls roll out?
     }
 }

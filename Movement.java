@@ -20,19 +20,19 @@ public class Movement {
         mater.close();
     }
 
-    public void forward() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 100000, RXTXRobot.MOTOR2, 255, 100000); //Speed of 255 for 100,000 ticks
+    public void forward(int speed, int distance) {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, -255, 10000);
     }
 
-    public void backward() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 100000, RXTXRobot.MOTOR2, -255, 100000); //Speed of 255 for 100,000 ticks
+    public void backward(int speed, int distance) {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, -255, 10000);
     }
 
-    public void left() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 10000, RXTXRobot.MOTOR2, 255, 10000); //Speed of +-255 for 10,000 ticks
+    public void left(int speed, int distance) {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, -255, 10000);
     }
 
-    public void right() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 10000, RXTXRobot.MOTOR2, -255, 10000); //Speed of +-255 for 10,000 ticks
+    public void right(int speed, int distance) {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, -255, 10000);
     }
 }
