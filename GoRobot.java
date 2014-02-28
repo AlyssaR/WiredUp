@@ -7,18 +7,30 @@ This is the main class and will create/handle objects from all other created cla
 Most commands are from the documentation on "RXTX Robot". 
 */
 import rxtxrobot.*;
+import java.util.Scanner;
 
 public class GoRobot {
     public static void main(String[] args) {
-        int bridgeLoc = 0; //0=left, 1=middle, 2=right
-        boolean getToken;
-        String port = "COM4"; //Accept input for what port the arduino is in
+        /*Get Parameter Input*/
+        Scanner input = new Scanner(System.in);
 
-        goGetEm(); //From well to end of dispensing
-        deliveryForMater(bridgeLoc, port); //From crossed bridge to delivery
+        System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
+        int bridgeLoc = input.nextInt();
+
+        System.out.print("Do we want the soccer ball? Enter \"true\" for first and \"false\" for last. ");
+        boolean getToken = input.nextBoolean();
+
+        System.out.print("What port is the arduino in? Enter \"COM#\". ");
+        String port = input.next();
+
+        /*Well through dispensing ping pong balls*/
+        goGetEm(port);
+
+        /*Crossed bridge through delivery of ping pong balls*/
+        deliveryForMater(bridgeLoc, port);
     }
 
-    public static void goGetEm() {
+    public static void goGetEm(String port) {
         Movement go = new Movement(port);
         int salinReading = 0, turbidReading = 0;
         Dispense dispense = new Dispense(salinReading, turbidReading, port);
