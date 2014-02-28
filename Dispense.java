@@ -36,12 +36,12 @@ public class Dispense {
     }
 
     public void getSBalls(int index) {
-        go.forward(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser
+        go.move(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser
         if(/*CanSeeDispenser*/true) { //use ping
             for(; salinity[index] > 0; salinity[index]--) {
-                go.forward(SPEED, DISTANCE);
+                go.move(SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.backward(SPEED, DISTANCE);
+                go.move(SPEED, DISTANCE); //Backward
             }
         }
         else {
@@ -50,12 +50,12 @@ public class Dispense {
     }
 
     public void getTBalls() {
-        go.forward(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser
+        go.move(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser
         if(/*CanSeeDispenser*/true) { //use ping
             for(; turbidity[index] > 0; turbidity[index]--) {
-                go.forward(SPEED, DISTANCE);
+                go.move(SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.backward(SPEED, DISTANCE);
+                go.move(SPEED, DISTANCE); //Backward
             }
         }
         else {

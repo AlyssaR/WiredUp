@@ -24,15 +24,15 @@ public class Deliver {
     }
 
     public void findDropoff() {
-        go.forward(SPEED, DISTANCE);
-        go.right(SPEED, DISTANCE); //Navigate to dropoff (factor in current location based on location of bridge)
+        go.move(SPEED, DISTANCE);
+        go.right(); //Navigate to dropoff (factor in current location based on location of bridge)
         while(/*CannotSeeWall*/true) {//Use bump? to find wall behind dropoff
-            go.forward(SPEED, DISTANCE);
+            go.move(SPEED, DISTANCE);
         }
     }
 
     public void dispenseBalls() {
         //Use servo motors to raise arm and open gate
-        go.backward(SPEED, DISTANCE); //Help final balls roll out?
+        go.move(SPEED, DISTANCE); //Help final balls roll out?
     }
 }

@@ -37,11 +37,11 @@ public class GoRobot {
         int salinReading = 0, turbidReading = 0;
         Dispense dispense = new Dispense(salinReading, turbidReading, port);
 
-        go.backward(SPEED, DISTANCE); //However much will align with dispenser after turning
+        go.move(SPEED, DISTANCE); //However much will align with dispenser after turning
         go.right(SPEED, DISTANCE);
-        go.straight(SPEED, DISTANCE);
+        go.move(SPEED, DISTANCE);
         dispense.getTBalls(0); //Pass 0 as index for left well
-        go.backward(SPEED, DISTANCE); //However much needed to move to other well
+        go.move(SPEED, DISTANCE); //However much needed to move to other well
         go.right(SPEED, DISTANCE);
         go.left(SPEED, DISTANCE);
         dispense.getTBalls(1); //Pass 1 as index for right well
