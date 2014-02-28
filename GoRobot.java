@@ -17,6 +17,8 @@ public class GoRobot {
         System.out.print("What port is the arduino in? Enter \"COM#\". ");
         String port = input.next();
 
+
+
 /*Not needed yet.
         System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
         int bridgeLoc = input.nextInt();
