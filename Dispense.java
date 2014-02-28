@@ -9,8 +9,8 @@ import rxtxrobot.*;
 
 public class Dispense {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    int ;
-    float salinReading = 0, turbidReading = 0;
+    double sBalls, leftS, rightS, tBalls, leftT, rightT;
+    double salinReading = 0, turbidReading = 0;
     Movement go;
 
     public Dispense(float salin, float turbid, String port) {
