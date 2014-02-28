@@ -9,31 +9,25 @@ import rxtxrobot.*;
 
 public class Dispense {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    int salinity[2] = 0, turbidity[2] = 0;
-    int salinReading = 0, turbidReading = 0;
+    int ;
+    float salinReading = 0, turbidReading = 0;
     Movement go;
 
-    public Dispense(int salin, int turbid, String port) {
+    public Dispense(float salin, float turbid, String port) {
         mater.setPort(port);
         mater.connect();
         go = new Movement(port);
         salinReading = salin;
         turbidReading = turbid;
+
+        /*Do math and figure out how many salnity and turbidity balls are needed*/
+
     }
 
     public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
         mater.close();
     }
 
-    public void setSVal(int sensorInput) {
-        //Do math here to figure out how many ping pong balls are needed
-        salinity[0] = sensorInput;
-    }
-
-    public void setTVal(int sensorInput) {
-        //Do math here to figure out how many ping pong balls are needed
-        turbidity[0] = sensorInput;
-    }
 
     public void getSBalls(int index) {
         go.move(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser

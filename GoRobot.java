@@ -36,7 +36,7 @@ public class GoRobot {
 
     public static void goGetEm(String port) {
         Movement go = new Movement(port);
-        int salinReading = 0, turbidReading = 0;
+        float salinReading = 0, turbidReading = 0;
         Dispense dispense = new Dispense(salinReading, turbidReading, port);
 
         go.move(SPEED, DISTANCE); //However much will align with dispenser after turning
