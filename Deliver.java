@@ -24,10 +24,12 @@ public class Deliver {
     }
 
     public void findDropoff() {
-        go.move(SPEED, DISTANCE);
-        go.right(); //Navigate to dropoff (factor in current location based on location of bridge)
-        while(/*CannotSeeWall*/true) {//Use bump? to find wall behind dropoff
-            go.move(SPEED, DISTANCE);
+        mater.refreshAnalogPins();
+        AnalogPin bumpSensor = getAnalogPin(0);
+
+        go.right(); //Turn at end of bridge
+        while(bumpSensor == 0) { //Go til bump sensor is hit
+            go.move(250, 100);
         }
     }
 
@@ -35,7 +37,8 @@ public class Deliver {
         //Use servo motors to raise arm and open gate
         mater.moveServo(RXTXRobot.SERVO2, 30); //Starting position of 0
 
-        //Help balls roll out
+        //Knock balls roll out
+        mater.sleep(7000);
         go.move(-255, 50);
         go.move(255, 50);
     }
