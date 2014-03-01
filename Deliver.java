@@ -33,6 +33,10 @@ public class Deliver {
 
     public void dispenseBalls() {
         //Use servo motors to raise arm and open gate
-        go.move(SPEED, DISTANCE); //Help final balls roll out?
+        mater.moveServo(RXTXRobot.SERVO2, 30); //Starting position of 0
+
+        //Help balls roll out
+        go.move(-255, 50);
+        go.move(255, 50);
     }
 }

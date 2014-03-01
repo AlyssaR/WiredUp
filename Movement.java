@@ -21,7 +21,7 @@ public class Movement {
     }
 
     public void move(int speed, int distance) {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, -255, 10000);
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, speed, distance);
     }
 
     public void left() {

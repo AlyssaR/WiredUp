@@ -17,20 +17,17 @@ public class GoRobot {
         System.out.print("What port is the arduino in? Enter \"COM#\". ");
         String port = input.next();
 
-
-
-/*Not needed yet.
         System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
         int bridgeLoc = input.nextInt();
 
         System.out.print("Do we want the soccer ball? Enter \"true\" for first and \"false\" for last. ");
         boolean getToken = input.nextBoolean();
-*/
+
         /*Well through dispensing ping pong balls*/
-//      goGetEm(port);
+        goGetEm(port);
 
         /*Crossed bridge through delivery of ping pong balls*/
-//      deliveryForMater(bridgeLoc, port);
+        deliveryForMater(bridgeLoc, port);
 
     }
 
@@ -40,12 +37,12 @@ public class GoRobot {
         Dispense dispense = new Dispense(salinReading, turbidReading, port);
 
         go.move(SPEED, DISTANCE); //However much will align with dispenser after turning
-        go.right(SPEED, DISTANCE);
+        go.right();
         go.move(SPEED, DISTANCE);
         dispense.getTBalls(0); //Pass 0 as index for left well
         go.move(SPEED, DISTANCE); //However much needed to move to other well
-        go.right(SPEED, DISTANCE);
-        go.left(SPEED, DISTANCE);
+        go.right();
+        go.left();
         dispense.getTBalls(1); //Pass 1 as index for right well
 
         dispense.putAway();
@@ -54,6 +51,7 @@ public class GoRobot {
 
     public static void deliveryForMater(int bridgeLoc, String port) {
         Deliver deliver = new Deliver(bridgeLoc, port);
+
         deliver.findDropoff();
         deliver.dispenseBalls();
 
