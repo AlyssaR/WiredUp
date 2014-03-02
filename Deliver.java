@@ -28,18 +28,21 @@ public class Deliver {
         AnalogPin bumpSensor = getAnalogPin(0);
 
         go.right(); //Turn at end of bridge
-        while(bumpSensor == 0) { //Go til bump sensor is hit
-            go.move(250, 100);
+        while(bumpSensor.getValue() == 0) { //Go speed 250, 50 ticks, til bump sensor is hit
+            go.move(250, 50); // ~5.75 inches
         }
+        go.move(-250, 50); //Back up
+
+        dispenseBalls();
     }
 
     public void dispenseBalls() {
-        //Use servo motors to raise arm and open gate
+        //Raise gate
         mater.moveServo(RXTXRobot.SERVO2, 30); //Starting position of 0
 
-        //Knock balls roll out
+        //Wait and knock remaining balls out
         mater.sleep(7000);
-        go.move(-255, 50);
-        go.move(255, 50);
+        go.move(-255, 25);
+        go.move(255, 25);
     }
 }

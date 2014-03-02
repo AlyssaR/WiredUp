@@ -23,19 +23,21 @@ public class GoRobot {
         System.out.print("Do we want the soccer ball? Enter \"true\" for first and \"false\" for last. ");
         boolean getToken = input.nextBoolean();
 
-        /*Well through dispensing ping pong balls*/
+        /*Well -> dispensing ping pong balls*/
         goGetEm(port);
 
-        /*Crossed bridge through delivery of ping pong balls*/
-        deliveryForMater(bridgeLoc, port);
-
+        /*Crossed bridge -> delivery of ping pong balls*/
+        Deliver deliver = new Deliver(bridgeLoc, port);
+        deliver.findDropoff();
+        deliver.putAway();
     }
-
     public static void goGetEm(String port) {
+        /*Create objects/vars*/
         Movement go = new Movement(port);
         float salinReading = 0, turbidReading = 0;
         Dispense dispense = new Dispense(salinReading, turbidReading, port);
 
+        /*Dispense*/
         go.move(SPEED, DISTANCE); //However much will align with dispenser after turning
         go.right();
         go.move(SPEED, DISTANCE);
@@ -45,16 +47,8 @@ public class GoRobot {
         go.left();
         dispense.getTBalls(1); //Pass 1 as index for right well
 
-        dispense.putAway();
+        /*Close all objects*/
         go.putAway();
-    }
-
-    public static void deliveryForMater(int bridgeLoc, String port) {
-        Deliver deliver = new Deliver(bridgeLoc, port);
-
-        deliver.findDropoff();
-        deliver.dispenseBalls();
-
-        deliver.putAway();
+        dispense.putAway();
     }
 }
