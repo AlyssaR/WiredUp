@@ -39,7 +39,7 @@ public class Dispense {
                 go.move(SPEED, DISTANCE); //Backward
             }
         /*  My method of getting balls. takes into acount the which one is higher.
-            Mesures the amount of ping pong balls held.*/
+            Mesures the amount of ping pong balls held.
 
         //Salinity Method
             if (leftS > rightS){
@@ -78,7 +78,7 @@ public class Dispense {
                     sNeeded -= leftS;
                     heldPingPongBalls++;
                 }
-            }
+            }*/
         }
         else {
             //LineUpAgain

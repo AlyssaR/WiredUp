@@ -31,7 +31,7 @@ public class Deliver {
         while(bumpSensor.getValue() == 0) { //Go speed 250, 50 ticks, til bump sensor is hit
             go.move(250, 50); // ~5.75 inches
         }
-        go.move(-250, 50); //Back up
+        go.move(-250, 50); //Back up ~5.75 inches
 
         dispenseBalls();
     }
