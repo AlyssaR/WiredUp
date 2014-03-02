@@ -38,7 +38,7 @@ public class Dispense {
                 mater.sleep(1000); //Waits 1 second
                 go.move(SPEED, DISTANCE); //Backward
             }
-        s/*  My method of getting balls. takes into acount the which one is higher.
+        /*  My method of getting balls. takes into acount the which one is higher.
             Mesures the amount of ping pong balls held.*/
 
         //Salinity Method
