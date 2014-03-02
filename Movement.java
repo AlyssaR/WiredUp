@@ -25,10 +25,10 @@ public class Movement {
     }
 
     public void left() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, SPEED, DISTANCE, RXTXRobot.MOTOR2, -255, 10000);
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 155, RXTXRobot.MOTOR2, 255, 155);
     }
 
     public void right() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, SPEED, DISTANCE, RXTXRobot.MOTOR2, -255, 10000);
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 155, RXTXRobot.MOTOR2, -255, 155);
     }
 }
