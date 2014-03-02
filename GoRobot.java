@@ -11,11 +11,16 @@ import java.util.Scanner;
 
 public class GoRobot {
     public static void main(String[] args) {
-        /*Get Parameter Input*/
+	/*Get Parameter Input*/
         Scanner input = new Scanner(System.in);
-
-        System.out.print("What port is the arduino in? Enter \"COM#\". ");
-        String port = input.next();
+        
+	System.out.println("       ------------");
+        System.out.println("       | WiredUp! |");
+        System.out.println("       ------------");
+        System.out.println("\nIt's demo time! Let's party!\n\n");
+        
+        System.out.print("What port is the arduino in? Enter \"COM#\" - ");
+                String port = input.next();
 
         System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
         int bridgeLoc = input.nextInt();
@@ -32,7 +37,7 @@ public class GoRobot {
         deliver.putAway();
     }
     public static void goGetEm(String port) {
-        /*Create objects/vars*/
+        /*Create objects and variables*/
         Movement go = new Movement(port);
         float salinReading = 0, turbidReading = 0;
         Dispense dispense = new Dispense(salinReading, turbidReading, port);
