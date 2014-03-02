@@ -1,0 +1,6 @@
+~11.5 inches = 100 ticks
+
+Right angle turn = 150-175 ticks (one track +, one track -)
+
+1 rotation = 5 11/16 inches //The tracks measured around the wheel are this long. 
+//Probably better to use the tick measurements for coding.

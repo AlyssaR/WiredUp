@@ -38,8 +38,9 @@ public class Dispense {
                 mater.sleep(1000); //Waits 1 second
                 go.move(SPEED, DISTANCE); //Backward
             }
-        /*  My method of getting balls. takes into acount the which one is higher.
-            Mesures the amount of ping pong balls held.
+        s/*  My method of getting balls. takes into acount the which one is higher.
+            Mesures the amount of ping pong balls held.*/
+
         //Salinity Method
             if (leftS > rightS){
                 while (sNeeded >= leftS){
@@ -78,8 +79,6 @@ public class Dispense {
                     heldPingPongBalls++;
                 }
             }
-
-        */
         }
         else {
             //LineUpAgain
