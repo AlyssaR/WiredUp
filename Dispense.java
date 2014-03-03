@@ -42,6 +42,7 @@ public class Dispense {
             Mesures the amount of ping pong balls held.
 
         //Salinity Method
+         public void getSBalls(int sNeeded) {
             if (leftS > rightS){
                 while (sNeeded >= leftS){
                     go.move(SPEED, DISTANCE); //Forward
@@ -95,6 +96,7 @@ public class Dispense {
             }
             /*
             //turbidity method
+    public void getTBalls(float tNeeded) {
             if (leftT > rightT){
                 while (tNeeded >= leftT){
                     go.move(SPEED, DISTANCE); //Forward

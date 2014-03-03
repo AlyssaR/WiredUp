@@ -25,7 +25,7 @@ public class GoRobot {
         System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
         int bridgeLoc = input.nextInt();
 
-        System.out.print("Do we want the soccer ball? Enter \"true\" for first and \"false\" for last. ");
+        System.out.print("Do we want to get the soccer ball first? Enter \"true\" for first and \"false\" for last. ");
         boolean getToken = input.nextBoolean();
 
         /*Well -> dispensing ping pong balls*/
