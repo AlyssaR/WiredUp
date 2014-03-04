@@ -10,7 +10,6 @@ import rxtxrobot.*;
 public class Dispense {
     RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
     float sNeeded, leftS, rightS, tNeeded, leftT, rightT;
-    float salinReading = 0, turbidReading = 0;
     int PingPongBalls = 0;
     Movement go;
 
@@ -18,126 +17,91 @@ public class Dispense {
         mater.setPort(port);
         mater.connect();
         go = new Movement(port);
-        salinReading = salin;
-        turbidReading = turbid;
-
-        /*Do math and figure out how many salnity and turbidity balls are needed*/
-
+        sNeeded = salin;
+        tNeeded = turbid;
     }
 
-    public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
+    public void putAway() { //Always needs to be called when done using object in other classes
         mater.close();
     }
 
-
-    public void getSBalls(int index) {
-        go.move(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser
-        if(/*CanSeeDispenser*/true) { //use ping
-            for(; salinity[index] > 0; salinity[index]--) {
+    public void getSBalls() {
+        if (leftS > rightS){
+            while (sNeeded >= leftS){
                 go.move(SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
                 go.move(SPEED, DISTANCE); //Backward
+
+                sNeeded -= leftS;
+                heldPingPongBalls++;
             }
-        /*  My method of getting balls. takes into acount the which one is higher.
-            Mesures the amount of ping pong balls held.
+            while (sNeeded > 0){
+                go.move(SPEED, DISTANCE); //Forward
+                mater.sleep(1000); //Waits 1 second
+                go.move(SPEED, DISTANCE); //Backward
 
-        //Salinity Method
-         public void getSBalls(int sNeeded) {
-            if (leftS > rightS){
-                while (sNeeded >= leftS){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    sNeeded -= leftS;
-                    heldPingPongBalls++;
-                }
-                while (sNeeded > 0){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    sNeeded -= rightS;
-                    heldPingPongBalls++;
-                }
+                sNeeded -= rightS;
+                heldPingPongBalls++;
             }
-
-            else{
-                while (sNeeded >= rightS){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    sNeeded -= rightS;
-                    heldPingPongBalls++;
-                }
-                while (sNeeded > 0){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    sNeeded -= leftS;
-                    heldPingPongBalls++;
-                }
-            }*/
         }
-        else {
-            //LineUpAgain
+
+        else{
+            while (sNeeded >= rightS){
+                go.move(SPEED, DISTANCE); //Forward
+                mater.sleep(1000); //Waits 1 second
+                go.move(SPEED, DISTANCE); //Backward
+
+                sNeeded -= rightS;
+                heldPingPongBalls++;
+            }
+            while (sNeeded > 0){
+                go.move(SPEED, DISTANCE); //Forward
+                mater.sleep(1000); //Waits 1 second
+                go.move(SPEED, DISTANCE); //Backward
+
+                sNeeded -= leftS;
+                heldPingPongBalls++;
+            }
         }
     }
 
     public void getTBalls() {
-        go.move(SPEED, DISTANCE); //Some navigationaly stuff to find the dispenser
-        if(/*CanSeeDispenser*/true) { //use ping
-            for(; turbidity[index] > 0; turbidity[index]--) {
+        if (leftT > rightT){
+            while (tNeeded >= leftT){
                 go.move(SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
                 go.move(SPEED, DISTANCE); //Backward
+
+                tNeeded -= leftT;
+                heldPingPongBalls++;
             }
-            /*
-            //turbidity method
-    public void getTBalls(float tNeeded) {
-            if (leftT > rightT){
-                while (tNeeded >= leftT){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
+            while (tNeeded > 0){
+                go.move(SPEED, DISTANCE); //Forward
+                mater.sleep(1000); //Waits 1 second
+                go.move(SPEED, DISTANCE); //Backward
 
-                    tNeeded -= leftT;
-                    heldPingPongBalls++;
-                }
-                while (tNeeded > 0){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    tNeeded -= rightT;
-                    heldPingPongBalls++;
-                }
+                tNeeded -= rightT;
+                heldPingPongBalls++;
             }
-
-            else{
-                while (tNeeded >= rightT){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    tNeeded -= rightT;
-                    heldPingPongBalls++;
-                }
-                while (tNeeded > 0){
-                    go.move(SPEED, DISTANCE); //Forward
-                    mater.sleep(1000); //Waits 1 second
-                    go.move(SPEED, DISTANCE); //Backward
-
-                    tNeeded -= leftT;
-                    heldPingPongBalls++;
-                }
-            }
-             */
         }
-        else {
-            //LineUpAgain
+
+        else{
+            while (tNeeded >= rightT){
+                go.move(SPEED, DISTANCE); //Forward
+                mater.sleep(1000); //Waits 1 second
+                go.move(SPEED, DISTANCE); //Backward
+
+                tNeeded -= rightT;
+                heldPingPongBalls++;
+            }
+            while (tNeeded > 0){
+                go.move(SPEED, DISTANCE); //Forward
+                mater.sleep(1000); //Waits 1 second
+                go.move(SPEED, DISTANCE); //Backward
+
+                tNeeded -= leftT;
+                heldPingPongBalls++;
+            }
         }
     }
 }
