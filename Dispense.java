@@ -5,40 +5,33 @@
 This class will handle dispensing the correct amount of ping pong balls.
 
 */
-import rxtxrobot.*; 
+import rxtxrobot.*;
 
 public class Dispense {
-    RXTXRobot mater = new RXTXRobot(); //Note: Our robot name is "mater" like tuhmater except without the tuh.
-    float sNeeded, leftS, rightS, tNeeded, leftT, rightT;
-    int PingPongBalls = 0;
+    float sNeeded, leftS, rightS, tNeeded, leftT = 10, rightT = 1;
+    int heldPingPongBalls = 0, SPEED = 300, BACKUP = 10, DISTANCE = 40;
     Movement go;
 
-    public Dispense(float salin, float turbid, String port) {
-        mater.setPort(port);
-        mater.connect();
-        go = new Movement(port);
+    public Dispense(float salin, float turbid) {
+        go = new Movement();
         sNeeded = salin;
         tNeeded = turbid;
     }
 
-    public void putAway() { //Always needs to be called when done using object in other classes
-        mater.close();
-    }
-
-    public void getSBalls() {
+    public void getSBalls(RXTXRobot mater) {
         if (leftS > rightS){
             while (sNeeded >= leftS){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 sNeeded -= leftS;
                 heldPingPongBalls++;
             }
             while (sNeeded > 0){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 sNeeded -= rightS;
                 heldPingPongBalls++;
@@ -47,17 +40,17 @@ public class Dispense {
 
         else{
             while (sNeeded >= rightS){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 sNeeded -= rightS;
                 heldPingPongBalls++;
             }
             while (sNeeded > 0){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 sNeeded -= leftS;
                 heldPingPongBalls++;
@@ -65,20 +58,25 @@ public class Dispense {
         }
     }
 
-    public void getTBalls() {
+    public void getTBalls(RXTXRobot mater) {
         if (leftT > rightT){
             while (tNeeded >= leftT){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= leftT;
                 heldPingPongBalls++;
             }
+            go.move(mater, -300, 30);
+            go.right(mater);
+            go.move(mater, 300, 250);
+            go.left(mater);
+            go.move(mater, 300, 30);
             while (tNeeded > 0){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= rightT;
                 heldPingPongBalls++;
@@ -87,17 +85,17 @@ public class Dispense {
 
         else{
             while (tNeeded >= rightT){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= rightT;
                 heldPingPongBalls++;
             }
             while (tNeeded > 0){
-                go.move(SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
-                go.move(SPEED, DISTANCE); //Backward
+                go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= leftT;
                 heldPingPongBalls++;

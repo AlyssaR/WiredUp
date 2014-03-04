@@ -5,30 +5,19 @@
 This class will handle moving and maneuvering around the course.
 
 */
-import rxtxrobot.*; 
+import rxtxrobot.*;
 
 public class Movement {
-    RXTXRobot mater; //Note: Our robot name is "mater" like tuhmater except without the tuh.
 
-    public Movement(String port) {
-        mater.setPort(port);
-        mater.setHasEncodedMotors(true);
-        mater.connect();
-    }
-
-    public void putAway() { //Deconstructor? Always needs to be called when done using object in other classes
-        mater.close();
-    }
-
-    public void move(int speed, int distance) {
+    public void move(RXTXRobot mater, int speed, int distance) {
         mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, speed, distance);
     }
 
-    public void left() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, -255, 155, RXTXRobot.MOTOR2, 255, 155);
+    public void left(RXTXRobot mater) {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, 300, 175, RXTXRobot.MOTOR2, -300, 175);
     }
 
-    public void right() {
-        mater.runEncodedMotor(RXTXRobot.MOTOR1, 255, 155, RXTXRobot.MOTOR2, -255, 155);
+    public void right(RXTXRobot mater) {
+        mater.runEncodedMotor(RXTXRobot.MOTOR1, -300, 200, RXTXRobot.MOTOR2, 300, 200);
     }
 }
