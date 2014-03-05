@@ -32,7 +32,12 @@ public class Dispense {
                 sNeeded -= leftS;
                 heldPingPongBalls++;
             }
-            while (sNeeded > 0){
+            go.move(mater, -300, 30);
+            go.right(mater);
+            go.move(mater, 300, 340);
+            go.left(mater);
+            go.move(mater, 300, 30);
+            while (sNeeded > .05){
                 go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
                 go.move(mater, -SPEED, BACKUP); //Backward
@@ -51,7 +56,12 @@ public class Dispense {
                 sNeeded -= rightS;
                 heldPingPongBalls++;
             }
-            while (sNeeded > 0){
+            go.move(mater, -300, 30);
+            go.lft(mater);
+            go.move(mater, 300, 340);
+            go.right(mater);
+            go.move(mater, 300, 30);
+            while (sNeeded > .05){
                 go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
                 go.move(mater, -SPEED, BACKUP); //Backward
@@ -77,7 +87,7 @@ public class Dispense {
             go.move(mater, 300, 340);
             go.left(mater);
             go.move(mater, 300, 30);
-            while (tNeeded > 0){
+            while (tNeeded > 2.5){
                 go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
@@ -96,7 +106,12 @@ public class Dispense {
                 tNeeded -= rightT;
                 heldPingPongBalls++;
             }
-            while (tNeeded > 0){
+            go.move(mater, -300, 30);
+            go.left(mater);
+            go.move(mater, 300, 340);
+            go.right(mater);
+            go.move(mater, 300, 30);
+            while (tNeeded > 2.5){
                 go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
