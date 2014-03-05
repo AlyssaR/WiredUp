@@ -1,0 +1,25 @@
+		/*Get Parameter Input*/
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("What is the salinity reading? ");
+        float salinity = input.nextFloat();
+  	  System.out.print("What is the value of the left salinity dispenser? (1 or .1) ");
+        float salinLeft = input.nextFloat();
+        
+  	  System.out.print("What is the value of the right salinity dispenser? (1 or .1) ");
+        float salinRight = input.nextFloat();
+
+        System.out.print("What is the turbidity reading? ");
+        float turbidity = input.nextFloat();
+
+  	  System.out.print("What is the value of the left turbidity dispenser? (50 or 5) ");
+        float turbidLeft = input.nextFloat();        
+ 
+  	  System.out.print("What is the value of the right turbidity dispenser? (50 or 5) ");
+        float turbidRight = input.nextFloat();        
+        
+        System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
+        int bridgeLoc = input.nextInt();
+
+        System.out.print("Do we want to get the soccer ball first? Enter \"true\" for first and \"false\" for last. ");
+        boolean getToken = input.nextBoolean();
