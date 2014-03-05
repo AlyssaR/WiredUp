@@ -8,14 +8,18 @@ This class will handle dispensing the correct amount of ping pong balls.
 import rxtxrobot.*;
 
 public class Dispense {
-    float sNeeded, leftS, rightS, tNeeded, leftT = 10, rightT = 1;
+    float sNeeded, leftS, rightS, tNeeded, leftT, rightT;
     int heldPingPongBalls = 0, SPEED = 300, BACKUP = 10, DISTANCE = 40;
     Movement go;
 
-    public Dispense(float salin, float turbid) {
+    public Dispense(float salin, float turbid, float salinLeft, float salinRight, float turbidLeft, float turbidRight) {
         go = new Movement();
         sNeeded = salin;
         tNeeded = turbid;
+        leftS = salinLeft;
+        rightS = salinRight;
+        leftT = turbidLeft;
+        rightT = turbidRight;
     }
 
     public void getSBalls(RXTXRobot mater) {
@@ -62,7 +66,7 @@ public class Dispense {
         if (leftT > rightT){
             while (tNeeded >= leftT){
                 go.move(mater, SPEED, DISTANCE); //Forward
-                mater.sleep(1000); //Waits 1 second
+                mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= leftT;
@@ -70,12 +74,12 @@ public class Dispense {
             }
             go.move(mater, -300, 30);
             go.right(mater);
-            go.move(mater, 300, 250);
+            go.move(mater, 300, 340);
             go.left(mater);
             go.move(mater, 300, 30);
             while (tNeeded > 0){
                 go.move(mater, SPEED, DISTANCE); //Forward
-                mater.sleep(1000); //Waits 1 second
+                mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= rightT;
@@ -86,7 +90,7 @@ public class Dispense {
         else{
             while (tNeeded >= rightT){
                 go.move(mater, SPEED, DISTANCE); //Forward
-                mater.sleep(1000); //Waits 1 second
+                mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= rightT;
@@ -94,7 +98,7 @@ public class Dispense {
             }
             while (tNeeded > 0){
                 go.move(mater, SPEED, DISTANCE); //Forward
-                mater.sleep(1000); //Waits 1 second
+                mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
 
                 tNeeded -= leftT;
