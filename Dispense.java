@@ -9,7 +9,7 @@ import rxtxrobot.*;
 
 public class Dispense {
     float sNeeded, leftS, rightS, tNeeded, leftT, rightT;
-    int heldPingPongBalls = 0, SPEED = 300, BACKUP = 10, DISTANCE = 40;
+    int heldPingPongBalls = 0, SPEED = 300, BACKUP = 10, DISTANCE = 50;
     Movement go;
 
     public Dispense(float salin, float turbid, float salinLeft, float salinRight, float turbidLeft, float turbidRight) {
@@ -57,7 +57,7 @@ public class Dispense {
                 heldPingPongBalls++;
             }
             go.move(mater, -300, 30);
-            go.lft(mater);
+            go.left(mater);
             go.move(mater, 300, 340);
             go.right(mater);
             go.move(mater, 300, 30);
@@ -75,7 +75,7 @@ public class Dispense {
     public void getTBalls(RXTXRobot mater) {
         if (leftT > rightT){
             while (tNeeded >= leftT){
-                go.move(mater, SPEED, DISTANCE); //Forward
+                go.move(mater, SPEED, DISTANCE+10); //Forward
                 mater.sleep(500); //Waits .5 second
                 go.move(mater, -SPEED, BACKUP); //Backward
 

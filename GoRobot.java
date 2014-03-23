@@ -1,4 +1,4 @@
-/* GoRobot.java by Team WiredUp!
+/* GoRobotGo.java by Team WiredUp!
 	Created by: Adam Goff and Alyssa Rahman
 	Created on: February 26, 2014
 
@@ -28,33 +28,33 @@ public class GoRobot {
 
         System.out.print("What is the salinity reading? ");
         float salinity = input.nextFloat();
-  	  System.out.print("What is the value of the left salinity dispenser? (1 or .1) ");
+  	  	System.out.print("What is the value of the left salinity dispenser? (1 or .1) ");
         float salinLeft = input.nextFloat();
         
-  	  System.out.print("What is the value of the right salinity dispenser? (1 or .1) ");
+  	  	System.out.print("What is the value of the right salinity dispenser? (1 or .1) ");
         float salinRight = input.nextFloat();
 
         System.out.print("What is the turbidity reading? ");
         float turbidity = input.nextFloat();
 
-  	  System.out.print("What is the value of the left turbidity dispenser? (50 or 5) ");
+  	  	System.out.print("What is the value of the left turbidity dispenser? (50 or 5) ");
         float turbidLeft = input.nextFloat();        
  
-  	  System.out.print("What is the value of the right turbidity dispenser? (50 or 5) ");
+  	  	System.out.print("What is the value of the right turbidity dispenser? (50 or 5) ");
         float turbidRight = input.nextFloat();        
         
-        System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
-        int bridgeLoc = input.nextInt();
+        //System.out.print("Where is the bridge? Enter 0 for left, 1 for middle, 2 for right. ");
+        int bridgeLoc = 0;//input.nextInt();
 
-        System.out.print("Do we want to get the soccer ball first? Enter \"true\" for first and \"false\" for last. ");
-        boolean getToken = input.nextBoolean();
+        //System.out.print("Do we want to get the soccer ball first? Enter \"true\" for first and \"false\" for last. ");
+        boolean getToken = false;//input.nextBoolean();
 
         /*Well -> dispensing ping pong balls*/
-        goGetEm(mater, salinity, salinLeft, salinRight, turbidity, turbidLeft, turbidRight);
+    //    goGetEm(mater, salinity, salinLeft, salinRight, turbidity, turbidLeft, turbidRight);
 
         /*Crossed bridge -> delivery of ping pong balls*/
         Deliver deliver = new Deliver(bridgeLoc);
-   //     deliver.findDropoff(mater);
+       deliver.findDropoff(mater);
         
         /*Close*/
         mater.close();
@@ -66,15 +66,16 @@ public class GoRobot {
         Dispense dispense = new Dispense(salinReading, turbidReading, salinLeft, salinRight, turbidLeft, turbidRight);
 
         /*Dispense Turbidity*/
-        go.move(mater, speed, 225);	
+/*        go.move(mater, speed, 225);	
 		go.firstLeft(mater);
 		go.move(mater, speed, 495);
 		dispense.getTBalls(mater);
-        
+ */       
+
  //       go.turnAroundSitDown(mater);
         
         /*Dispense Salinity*/
- //       go.move(mater, speed, DISTANCE);
- //       dispense.getSBalls(mater);
+  //      go.move(mater, speed, DISTANCE);
+  //      dispense.getSBalls(mater);
     }
 }

@@ -5,7 +5,7 @@
 This class will handle moving and maneuvering around the course.
 
 */
-import rxtxrobot.*;
+import rxtxrobot.*; 
 
 public class Movement {
 
@@ -13,13 +13,13 @@ public class Movement {
         mater.runEncodedMotor(RXTXRobot.MOTOR1, speed, distance, RXTXRobot.MOTOR2, speed, distance);
     }
     public void left(RXTXRobot mater) {
-    	mater.runEncodedMotor(RXTXRobot.MOTOR1, 300, 260, RXTXRobot.MOTOR2, -300, 260);
+    	mater.runEncodedMotor(RXTXRobot.MOTOR1, 300, 250, RXTXRobot.MOTOR2, -300, 250);
     }
     public void right(RXTXRobot mater) {
-    	mater.runEncodedMotor(RXTXRobot.MOTOR1, -300, 275, RXTXRobot.MOTOR2, 300, 275);
+    	mater.runEncodedMotor(RXTXRobot.MOTOR1, -300, 250, RXTXRobot.MOTOR2, 300, 250);
     }
     public void firstLeft(RXTXRobot mater) {
-    	mater.runEncodedMotor(RXTXRobot.MOTOR1, 300, 270, RXTXRobot.MOTOR2, -300, 270);
+    	mater.runEncodedMotor(RXTXRobot.MOTOR1, 300, 250, RXTXRobot.MOTOR2, -300, 250);
     }
     public void turnAroundSitDown(RXTXRobot mater) {
     	mater.runEncodedMotor(RXTXRobot.MOTOR1, 300, 320, RXTXRobot.MOTOR2, -300, 320);
