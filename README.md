@@ -14,5 +14,5 @@ It will include the RXTXRobot.jar library and compile all the .java's at once.
 
 		javac -cp ./* *.java
 
-For turbidity use the getConductivity() method. 
-	(Uses digital pins 11 and 12, and analog pins 4 and 5. Returns: conductivity measurement)
+For salinity use the getConductivity() method.
+For turbidity, get digital pin reading.
