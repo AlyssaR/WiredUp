@@ -34,7 +34,7 @@ public class Dispense {
             }
             go.move(mater, -300, 30);
             go.right(mater);
-            go.move(mater, 300, 340);
+            go.move(mater, 300,         340);
             go.left(mater);
             go.move(mater, 300, 30);
             while (sNeeded > .05){
@@ -57,10 +57,12 @@ public class Dispense {
                 heldPingPongBalls++;
             }
             go.move(mater, -300, 30);
-            go.left(mater);
+ //           go.left(mater);
+        	mater.runEncodedMotor(RXTXRobot.MOTOR1, -350, 250, RXTXRobot.MOTOR2, 350, 250);
+
             go.move(mater, 300, 340);
-            go.right(mater);
-            go.move(mater, 300, 30);
+        //    go.right(mater);
+        //    go.move(mater, 300, 30);
             while (sNeeded > .05){
                 go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(1000); //Waits 1 second
@@ -84,9 +86,9 @@ public class Dispense {
             }
             go.move(mater, -300, 30);
             go.right(mater);
-            go.move(mater, 300, 340);
+            go.move(mater, -300, 340);
             go.left(mater);
-            go.move(mater, 300, 30);
+            go.move(mater, -300, 30);
             while (tNeeded > 2.5){
                 go.move(mater, SPEED, DISTANCE); //Forward
                 mater.sleep(500); //Waits .5 second

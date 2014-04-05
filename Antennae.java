@@ -1,16 +1,8 @@
 import rxtxrobot.*;
 import java.lang.Math;
  
-public class Antennae
+public class SensorTester 
 { 
-	public Antennae() { 
-		RXTXRobot mater = new RXTXRobot(); 
-		mater.setPort("COM8"); 
-		mater.connect();
-		
-		mater.moveServo(RXTXRobot.SERVO1, 10);
-		mater.sleep(2000);
-	} 
 	public int turbidity(RXTXRobot mater) {
 		mater.refreshAnalogPins(); 
 
@@ -21,30 +13,31 @@ public class Antennae
 		
 		return turVal;
 	}
-	public double salinity(RXTXRobot mater) {
+	public float salinity(RXTXRobot mater) {
 		int current;
-		double average = 0;
+		float average = 0;
+
+		mater.moveServo(RXTXRobot.SERVO1, 0);
+		mater.sleep(2000);
 		
-		for(int x = 0; x < 20; x++) {
+		for(int x = 0; x < 7; x++) {
 			current = mater.getConductivity();
 			System.out.printf("\nSalinity %d is: %d", x+1 , current);
 			average += current;
 		}
-				
-		average /= 20; 
+		
+		mater.moveServo(RXTXRobot.SERVO1, 90);
+		
+		average /= 7; 
 		
 		//Converting reading to Salinity Val
 		double exponent = -.009*average;
 		double eVar = Math.exp(exponent);
 		double converted = .107883*eVar;
-		double salVal = converted*1000000;
+		float salVal = (float)converted*1000000;
 		
 		System.out.printf("\nAverage: %.0f \nConverted: %.10f\nFinal Reading: %.2f", average, converted, salVal);
 		
 		return salVal;
-	}
-	
-	public void allDone(RXTXRobot mater) {
-		mater.moveServo(RXTXRobot.SERVO1, 90);
 	}
 }

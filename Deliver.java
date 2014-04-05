@@ -17,19 +17,17 @@ public class Deliver {
         bridgeAt = bridge;
     }
 
-    public void findDropoff(RXTXRobot mater) {
-        
-            go.move(mater, speed, 850);
-
+    public void findDropoff(RXTXRobot mater) {        
+        go.move(mater, speed, bridgeAt-50);
         dispenseBalls(mater);
     }
 
     public void dispenseBalls(RXTXRobot mater) {
         //Raise gate
-        mater.moveServo(RXTXRobot.SERVO1, 30);
+        go.raiseDaRoof(mater, speed, 250);
 
         //Wait and knock remaining balls out
-        mater.sleep(7000);
+        mater.sleep(5000);
         go.move(mater, -speed, distance);
         go.move(mater, speed, distance);
     }
